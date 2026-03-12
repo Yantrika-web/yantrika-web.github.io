@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yantrika 2K26 · Hackathon</title>
+    <!-- same fontawesome & google font for consistency -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b0e14;
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ---------- navbar (matches home page style) ---------- */
+        header {
+            background: rgba(10, 15, 25, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #2d3748;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo img {
+            height: 70px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #cbd5e0;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+        }
+
+        .register-link {
+            background: #2563eb;
+            color: white;
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        .register-link:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        #menu-open-button,
+        #menu-close-button {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* ---------- main hackathon container ---------- */
+        .hack-main {
+            flex: 1;
+            max-width: 1300px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        /* header with title & back */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(130deg, #8b5cf6, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .page-header h1 i {
+            color: #8b5cf6;
+            margin-right: 12px;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #8b5cf6;
+        }
+
+        .home-badge {
+            background: #1e293b;
+            padding: 0.5rem 1.5rem;
+            border-radius: 60px;
+            border: 1px solid #3b4a5f;
+            font-weight: 500;
+        }
+
+        .home-badge a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+
+        .home-badge i {
+            margin-right: 8px;
+            color: #60a5fa;
+        }
+
+        /* two column layout */
+        .th-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 2.2rem;
+            margin-top: 1rem;
+        }
+
+        /* common card style */
+        .rules-card,
+        .form-card {
+            background: #16202e;
+            border-radius: 2rem;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.8);
+            border: 1px solid #2a3748;
+            backdrop-filter: blur(4px);
+            transition: transform 0.2s ease, border-color 0.2s;
+        }
+
+        .rules-card:hover,
+        .form-card:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            background: #1e2b3c;
+            border-radius: 18px;
+            color: #8b5cf6;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #334155;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #f0f4fa;
+        }
+
+        h2 i {
+            color: #8b5cf6;
+            font-size: 2rem;
+        }
+
+        /* rules list */
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed #2f3e52;
+        }
+
+        .rule-num {
+            background: #8b5cf6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+            box-shadow: 0 6px 12px #6d28d980;
+        }
+
+        .rule-text {
+            flex: 1;
+            color: #cdd9f0;
+            font-weight: 450;
+        }
+
+        .rule-highlight {
+            background: #7c3aed;
+            color: #ede9fe;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 8px;
+            white-space: nowrap;
+        }
+
+        .prize-note {
+            background: #1e2d44;
+            border-radius: 50px;
+            padding: 0.9rem 1.5rem;
+            margin-top: 2rem;
+            border-left: 6px solid #8b5cf6;
+            font-weight: 500;
+            color: #e0e7ff;
+        }
+
+        .prize-note i {
+            color: #fbbf24;
+            margin-right: 10px;
+        }
+
+        /* ---------- form styling ---------- */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: #ddd6fe;
+            letter-spacing: 0.3px;
+        }
+
+        label i {
+            width: 24px;
+            color: #8b5cf6;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            background: #101b28;
+            border-radius: 60px;
+            padding: 0.1rem 1.2rem;
+            border: 1.5px solid #2a3a50;
+            transition: all 0.2s;
+        }
+
+        .input-wrapper:hover,
+        .input-wrapper:focus-within {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px #6d28d980;
+        }
+
+        .input-wrapper i {
+            color: #5f789b;
+            font-size: 1.1rem;
+            width: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.9rem 0;
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: #edf2f7;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #4f6079;
+            font-weight: 400;
+        }
+
+        .btn-register {
+            background: linear-gradient(145deg, #7c3aed, #8b5cf6);
+            border: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1.8rem;
+            border: 1px solid #8b5cf6;
+            box-shadow: 0 15px 25px -8px #5b21b6;
+            transition: all 0.2s;
+        }
+
+        .btn-register:hover:not(:disabled) {
+            background: linear-gradient(145deg, #8b5cf6, #a78bfa);
+            transform: scale(1.02);
+            box-shadow: 0 20px 30px -8px #5b21b6;
+        }
+
+        .btn-register:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            background: #0f371f;
+            color: #b8f3c5;
+            border-radius: 60px;
+            padding: 0.9rem 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: 1px solid #2e7d5e;
+        }
+
+        .success-message.show {
+            display: flex;
+        }
+
+        .success-message i {
+            font-size: 1.5rem;
+            color: #4ade80;
+        }
+
+        small {
+            display: block;
+            margin-top: 1.2rem;
+            color: #8599bb;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            color: #6d85a9;
+            border-top: 1px solid #253545;
+            padding-top: 2rem;
+        }
+
+        .footer-note a {
+            color: #90caf9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* --- mobile menu improvements --- */
+        @media (max-width: 700px) {
+            .navbar {
+                padding: 0.8rem 1.5rem;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #0f172a;
+                flex-direction: column;
+                padding: 5rem 2rem;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 30px black;
+                z-index: 200;
+                overflow-y: auto;
+            }
+
+            body.show-mobile-menu .nav-menu {
+                right: 0;
+            }
+
+            body.show-mobile-menu {
+                overflow: hidden;
+            }
+
+            #menu-open-button {
+                display: block;
+            }
+
+            #menu-close-button {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* responsiveness for other sections */
+        @media (max-width: 1024px) {
+            .th-grid {
+                gap: 1.5rem;
+            }
+
+            .rules-card,
+            .form-card {
+                padding: 1.8rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .th-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hack-main {
+                margin: 1.5rem auto;
+                padding: 0 1rem;
+            }
+
+            .page-header {
+                margin-bottom: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .home-badge {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .rules-card,
+            .form-card {
+                padding: 1.5rem 1.2rem;
+                border-radius: 1.2rem;
+            }
+
+            .card-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+                border-radius: 14px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.2rem;
+            }
+
+            h2 i {
+                font-size: 1.5rem;
+            }
+
+            .rules-list li {
+                gap: 10px;
+                font-size: 0.95rem;
+            }
+
+            .rule-num {
+                width: 26px;
+                height: 26px;
+                font-size: 0.9rem;
+                border-radius: 8px;
+            }
+
+            .input-wrapper {
+                padding: 0.1rem 1rem;
+            }
+
+            input {
+                font-size: 0.95rem;
+            }
+
+            .btn-register {
+                padding: 0.9rem 1.2rem;
+                font-size: 1.05rem;
+            }
+
+            .prize-note {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+                margin-top: 1.5rem;
+            }
+
+            .footer-note {
+                font-size: 0.85rem;
+                padding: 1.5rem 1rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar (same as home) -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">
+                <img src="./yantrika-images/yantrika.png" alt="Yantrika Logo" style="height:45px;">
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.html#events" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="index.html#rules" class="nav-link">Rules</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdMAK3N2_PCzqhsFvhlyOdtZt3FZMfPoFVZkqa5NTaTAF0Fag/viewform?usp=dialog"
+                        class="nav-link register-link">Register</a></li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+    <main class="hack-main">
+        <!-- page header -->
+        <div class="page-header">
+            <h1><i class="fas fa-laptop-code"></i> HACKATHON</h1>
+            <div class="home-badge">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> back to home</a>
+            </div>
+        </div>
+
+        <!-- two content columns: rules & registration -->
+        <div class="th-grid">
+            <!-- LEFT: RULES CARD (hackathon specific) -->
+            <div class="rules-card">
+                <div class="card-icon"><i class="fas fa-scroll"></i></div>
+                <h2><i class="fas fa-shield-halved"></i> Hackathon rules</h2>
+                <ul class="rules-list">
+                    <li>
+                        <span class="rule-num">1</span>
+                        <span class="rule-text"><strong>Team size:</strong> 2–4 members. Solo not allowed.</span>
+                    </li>
+                    <li>
+                        <span class="rule-num">2</span>
+                        <span class="rule-text">Theme will be announced at the start. You have <strong>24 hours</strong>
+                            to build your solution.</span>
+                    </li>
+                    <li>
+                        <span class="rule-num">3</span>
+                        <span class="rule-text">Tech stack: any language, framework, or tools. <strong>No
+                                restrictions</strong>.</span>
+                    </li>
+                    <li>
+                        <span class="rule-num">4</span>
+                        <span class="rule-text">Code must be original. Use of open-source libraries allowed (credit
+                            where due).</span>
+                    </li>
+                    <li>
+                        <span class="rule-num">5</span>
+                        <span class="rule-text">Submission via GitHub/zip with <strong>README, demo video (optional),
+                                and presentation</strong>.</span>
+                    </li>
+                    <li>
+                        <span class="rule-num">6</span>
+                        <span class="rule-text">Bring your own laptops, chargers, and any hardware if needed. Internet
+                            provided.</span>
+                    </li>
+                    <li>
+                        <span class="rule-num">7</span>
+                        <span class="rule-text">Judging criteria: innovation, technical complexity, impact, and
+                            presentation.</span>
+                    </li>
+                </ul>
+                <div class="prize-note">
+                    <i class="fas fa-trophy"></i> <strong>Prizes :</strong> 1st ₹40k · 2nd ₹25k · 3rd ₹15k + swag &
+                    incubation opportunities
+                </div>
+            </div>
+
+            <!-- RIGHT: REGISTRATION FORM CARD (team) -->
+            <div class="form-card">
+                <div class="card-icon"><i class="fas fa-pen-to-square"></i></div>
+                <h2><i class="fas fa-users"></i> Register your team</h2>
+                <p style="margin-bottom: 1.8rem; color: #ddd6fe;"><i class="fas fa-info-circle"></i> All fields required
+                </p>
+
+                <form id="hackForm">
+                    <!-- Team name -->
+                    <div class="form-group">
+                        <label><i class="fas fa-flag"></i> Team name</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-tag"></i>
+                            <input type="text" id="teamName" placeholder="e.g. CodeBandits" required>
+                        </div>
+                    </div>
+
+                    <!-- Leader name -->
+                    <div class="form-group">
+                        <label><i class="fas fa-crown"></i> Team leader name</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user-circle"></i>
+                            <input type="text" id="leaderName" placeholder="Full name of leader" required>
+                        </div>
+                    </div>
+
+                    <!-- Other members (single field) -->
+                    <div class="form-group">
+                        <label><i class="fas fa-users-between-lines"></i> Other members' names</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user-group"></i>
+                            <input type="text" id="membersInput" placeholder="Alex, Priya, Raj (comma separated, max 3)"
+                                required>
+                        </div>
+                        <small style="display: block; margin-top: 6px; color: #7b95b5; text-align: left;">Enter up to 3
+                            other members (comma separated).</small>
+                    </div>
+
+                    <!-- Leader email -->
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Leader email</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-at"></i>
+                            <input type="email" id="leaderEmail" placeholder="leader@college.edu" required>
+                        </div>
+                    </div>
+
+                    <!-- Leader phone -->
+                    <div class="form-group">
+                        <label><i class="fas fa-phone-alt"></i> Leader phone</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-mobile-screen"></i>
+                            <input type="tel" id="leaderPhone" placeholder="+91 98765 43210" required>
+                        </div>
+                    </div>
+
+                    <!-- College -->
+                    <div class="form-group">
+                        <label><i class="fas fa-building-columns"></i> College / Institution</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-university"></i>
+                            <input type="text" id="college" placeholder="e.g. Naipunnya School of Management" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-register" id="registerBtn">
+                        <i class="fas fa-right-to-bracket"></i> REGISTER TEAM
+                    </button>
+                    <small><i class="fas fa-shield"></i> Details used only for event coordination.</small>
+                </form>
+
+                <!-- success message -->
+                <div id="successMsg" class="success-message">
+                    <i class="fas fa-circle-check"></i> Team registered! Check your email for theme & guidelines.
+                </div>
+
+                <!-- deadline note -->
+                <div
+                    style="margin-top: 1.5rem; background: #1e2d44; border-radius: 60px; padding: 0.7rem 1rem; color: #ddd6fe; text-align: center; border: 1px solid #8b5cf6;">
+                    <i class="far fa-clock"></i> Registrations close 24 hours before the event. Spots limited.
+                </div>
+            </div>
+        </div>
+
+        <!-- footer hint -->
+        <div class="footer-note">
+            <i class="fas fa-code"></i> YANTRIKA 2K26 · Hackathon · 30 March 2026
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            // ---------- mobile menu toggle ----------
+            const menuOpen = document.getElementById('menu-open-button');
+            const menuClose = document.getElementById('menu-close-button');
+            const body = document.body;
+
+            if (menuOpen) {
+                menuOpen.addEventListener('click', () => {
+                    body.classList.toggle('show-mobile-menu');
+                });
+            }
+
+            if (menuClose) {
+                menuClose.addEventListener('click', () => {
+                    body.classList.remove('show-mobile-menu');
+                });
+            }
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    body.classList.remove('show-mobile-menu');
+                });
+            });
+
+            // ---------- hackathon form handling (demo) ----------
+            const form = document.getElementById('hackForm');
+            const successDiv = document.getElementById('successMsg');
+            const registerBtn = document.getElementById('registerBtn');
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const data = {
+                    team: document.getElementById("teamName").value,
+                    leader: document.getElementById("leaderName").value,
+                    members: document.getElementById("membersInput").value,
+                    email: document.getElementById("leaderEmail").value,
+                    phone: document.getElementById("leaderPhone").value,
+                    college: document.getElementById("college").value
+                };
+
+                registerBtn.disabled = true;
+                registerBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Submitting...`;
+
+                await fetch("https://script.google.com/macros/s/AKfycbyiQ4F3xHVRhN_YnJFsfG7Ib6IylaF5epCJ5JIhnVtYhI3Eguo5k0caaHUmvXr9qG0SOQ/exec", {
+                    method: "POST",
+                    body: JSON.stringify(data)
+                });
+
+                successDiv.classList.add('show');
+                registerBtn.innerHTML = `<i class="fas fa-check-circle"></i> REGISTERED`;
+            });
+        })();
+    </script>
+</body>
+
+</html>

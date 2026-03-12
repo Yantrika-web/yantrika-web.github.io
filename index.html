@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yantrika 2K26 - IT Fest | Naipunnya School of Management</title>
+    <meta name="description" content="YANTRIKA 2K26 — the annual IT Fest by Naipunnya School of Management. Competitions, tech talks, gaming, and more. Register now!" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <!-- <nav class="navbar">
+        <a href="#" class="nav-logo">
+          <h2 class="logo-text"><img src="./yantrika-images/yantrika.png" alt="Yantrika Logo"></h2>
+        </a>
+        <ul class="nav-menu">
+          <button id="menu-close-button" class="fas fa-times"></button>
+          <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#events" class="nav-link">Events</a></li>
+          <li class="nav-item"><a href="#rules" class="nav-link">Rules</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdMAK3N2_PCzqhsFvhlyOdtZt3FZMfPoFVZkqa5NTaTAF0Fag/viewform?usp=dialog" class="nav-link register-link">Register</a></li>
+        </ul>
+        <button id="menu-open-button" class="fas fa-bars"></button>
+      </nav> -->
+
+      <nav class="navbar">
+      <a href="index.html" class="nav-logo">
+        <img src="./yantrika-images/yantrika.png" alt="Yantrika Logo" style="height:45px;">
+      </a>
+      <ul class="nav-menu">
+        <button id="menu-close-button" class="fas fa-times"></button>
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="index.html#events" class="nav-link">Events</a></li>
+        <li class="nav-item"><a href="index.html#rules" class="nav-link">Rules</a></li>
+        <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdMAK3N2_PCzqhsFvhlyOdtZt3FZMfPoFVZkqa5NTaTAF0Fag/viewform?usp=dialog"
+            class="nav-link register-link">Register</a></li>
+      </ul>
+      <button id="menu-open-button" class="fas fa-bars"></button>
+    </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <canvas id="particles-canvas"></canvas>
+        <div class="hero-bg-gradient">
+          <div class="hero-orb hero-orb-1"></div>
+          <div class="hero-orb hero-orb-2"></div>
+          <div class="hero-orb hero-orb-3"></div>
+        </div>
+        <div class="section-content">
+          <div class="hero-details">
+            <h1 class="title">YANTRIKA</h1>
+            <h3 class="subtitle">Make your day great with our special day!</h3>
+            <p class="description">Where technology meets innovation, Yantrika is the spark that fuels the future of digital transformation!</p>
+            <div class="buttons">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdMAK3N2_PCzqhsFvhlyOdtZt3FZMfPoFVZkqa5NTaTAF0Fag/viewform?usp=dialog" class="button order-now ripple-container"><i class="fas fa-rocket"></i> Register Now</a>
+              <a href="#contact" class="button contact-us ripple-container"><i class="fas fa-envelope"></i> Contact Us</a>
+            </div>
+          </div>
+          <!-- Countdown -->
+          <div class="wrapper">
+            <div class="countdown-title">Event Countdown</div>
+            <div class="count-down">
+              <div class="timer day"><div class="count"><div class="numb">00</div><div class="count-text">Days</div></div></div>
+              <div class="clone">:</div>
+              <div class="timer hour"><div class="count"><div class="numb">00</div><div class="count-text">Hours</div></div></div>
+              <div class="clone">:</div>
+              <div class="timer min"><div class="count"><div class="numb">00</div><div class="count-text">Minutes</div></div></div>
+              <div class="clone">:</div>
+              <div class="timer sec"><div class="count"><div class="numb">00</div><div class="count-text">Seconds</div></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about-section" id="about">
+        <div class="section-content">
+          <div class="about-image-wrapper reveal-left">
+            <model-viewer src="./yantrika-images/yanthrika_blender1.gltf" id="threed" camera-controls auto-rotate disable-zoom interaction-prompt="none"></model-viewer>
+          </div>
+          <div class="about-details reveal-right">
+            <h2 class="section-title">About Us</h2>
+            <p class="text">Welcome to <strong>YANTRIKA</strong>, the annual IT Fest organized by <em>Naipunnya School of Management</em>.
+                Scheduled to take place on <strong>March 30, 2026</strong> in our prestigious college auditorium, YANTRIKA is
+                a celebration of technology, innovation, and creativity.
+                YANTRIKA will feature thrilling competitions, insightful tech talks,
+                and interactive workshops designed to inspire and ignite the passion for technology among participants.
+                Let's make YANTRIKA 2K26 a memorable experience!</p>
+            <div class="social-link-list">
+              <a href="https://wa.me/+919744908557" class="social-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://www.instagram.com/yantrika2k26/?utm_source=ig_web_button_share_sheet" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Events Section -->
+      <section class="events-section" id="events">
+        <h2 class="section-title reveal">Events</h2>
+        <div class="events-carousel-wrapper">
+          <div class="swiper events-swiper">
+            <div class="swiper-wrapper">
+
+              <!-- Event 1: Treasure Hunt -->
+              <div class="swiper-slide">
+                <div class="event-flip-card">
+                  <div class="event-flip-inner">
+                    <div class="event-flip-front">
+                      <img src="./yantrika-images/Trsr-hunt.webp" alt="Treasure Hunt" class="event-card-img" draggable="false">
+                      <div class="event-card-content">
+                        <span class="event-card-badge"><i class="fas fa-compass"></i> Adventure</span>
+                        <h3>TREASURE HUNT</h3>
+                        <div class="tap-hint"><i class="fas fa-hand-pointer"></i> Tap to explore</div>
+                      </div>
+                    </div>
+                    <div class="event-flip-back">
+                      <h3>TREASURE HUNT</h3>
+                      <p>Embark on an exciting adventure in our Treasure Hunt event! Solve clues, discover hidden treasures, and compete for amazing prizes in this fun and challenging race.</p>
+                      <a href="./treasure-hunt.html" style="text-decoration: none;"><button class="event-register-btn ripple-container">
+                        <span>Register Now</span> <i class="fas fa-arrow-right btn-arrow"></i>
+                      </button></a>
+                      <div class="back-close-hint">Tap again to go back</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event 2: Hackathon -->
+              <div class="swiper-slide">
+                <div class="event-flip-card" data-register="https://docs.google.com/forms/d/e/1FAIpQLSfTxFeyY2dZdS5rGk29DKZdwubO1NAHs0NLm7t6WOdiBeQDRw/viewform?usp=dialog">
+                  <div class="event-flip-inner">
+                    <div class="event-flip-front">
+                      <img src="./yantrika-images/Hackathon.jpg" alt="Hackathon" class="event-card-img" draggable="false">
+                      <div class="event-card-content">
+                        <span class="event-card-badge tech"><i class="fas fa-code"></i> Tech</span>
+                        <h3>HACKATHON</h3>
+                        <div class="tap-hint"><i class="fas fa-hand-pointer"></i> Tap to explore</div>
+                      </div>
+                    </div>
+                    <div class="event-flip-back">
+                      <h3>HACKATHON</h3>
+                      <p>Ready to code, create, and conquer? The Hackathon is an intense and exciting competition where innovators, developers, and problem-solvers come together to build creative tech solutions within a limited time.</p>
+                      <a href="./hackathon.html" style="text-decoration: none;"><button class="event-register-btn ripple-container">
+                        <span>Register Now</span> <i class="fas fa-arrow-right btn-arrow"></i>
+                      </button></a>
+                      <div class="back-close-hint">Tap again to go back</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event 3: BGMI -->
+              <div class="swiper-slide">
+                <div class="event-flip-card" data-register="https://docs.google.com/forms/d/e/1FAIpQLSdwTWVc3X33v26xczQDcJAd0901yVoDgQ051wmx0_SLptaxUA/viewform?usp=dialog">
+                  <div class="event-flip-inner">
+                    <div class="event-flip-front">
+                      <img src="./yantrika-images/bgmi.jpg" alt="BGMI" class="event-card-img" draggable="false">
+                      <div class="event-card-content">
+                        <span class="event-card-badge gaming"><i class="fas fa-gamepad"></i> Gaming</span>
+                        <h3>BGMI</h3>
+                        <div class="tap-hint"><i class="fas fa-hand-pointer"></i> Tap to explore</div>
+                      </div>
+                    </div>
+                    <div class="event-flip-back">
+                      <h3>BGMI</h3>
+                      <p>Join us for an action-packed BGMI Gaming Event! Show off your skills, compete with top players, and experience thrilling battles in the ultimate showdown.</p>
+                      <a href="./bgmi.html" style="text-decoration: none;"><button class="event-register-btn ripple-container">
+                        <span>Register Now</span> <i class="fas fa-arrow-right btn-arrow"></i>
+                      </button></a>
+                      <div class="back-close-hint">Tap again to go back</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event 4: Web Design -->
+              <div class="swiper-slide">
+                <div class="event-flip-card" data-register="https://docs.google.com/forms/d/e/1FAIpQLSd5yLmYo_FkUn02bh3rQQkKmn1keSuyJnhtq_fh2b7PnjoenA/viewform?usp=dialog">
+                  <div class="event-flip-inner">
+                    <div class="event-flip-front">
+                      <img src="./yantrika-images/Webdev.jpg" alt="Web Design" class="event-card-img" draggable="false">
+                      <div class="event-card-content">
+                        <span class="event-card-badge creative"><i class="fas fa-palette"></i> Creative</span>
+                        <h3>WEB DESIGN</h3>
+                        <div class="tap-hint"><i class="fas fa-hand-pointer"></i> Tap to explore</div>
+                      </div>
+                    </div>
+                    <div class="event-flip-back">
+                      <h3>WEB DESIGN</h3>
+                      <p>Join us for a dynamic Web Designing Event! Explore the latest trends, tools, and techniques to enhance your design skills and stay ahead.</p>
+                      <a href="./web-designing.html" style="text-decoration: none;"><button class="event-register-btn ripple-container">
+                        <span>Register Now</span> <i class="fas fa-arrow-right btn-arrow"></i>
+                      </button></a>
+                      <div class="back-close-hint">Tap again to go back</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Event 5: Coding -->
+              <div class="swiper-slide">
+                <div class="event-flip-card" data-register="https://docs.google.com/forms/d/e/1FAIpQLSd638dTanWUEMoWxDBBDdJOHUmohN7UZIZ2NE_4yZ4W2M1hyg/viewform?usp=dialog">
+                  <div class="event-flip-inner">
+                    <div class="event-flip-front">
+                      <img src="./yantrika-images/codingg.png" alt="Coding" class="event-card-img" draggable="false">
+                      <div class="event-card-content">
+                        <span class="event-card-badge tech"><i class="fas fa-terminal"></i> Tech</span>
+                        <h3>CODING</h3>
+                        <div class="tap-hint"><i class="fas fa-hand-pointer"></i> Tap to explore</div>
+                      </div>
+                    </div>
+                    <div class="event-flip-back">
+                      <h3>CODING</h3>
+                      <p>A high-energy coding event where developers of all levels come together to solve challenges, showcase their skills, and innovate collaboratively.</p>
+                      <a href="./coding.html" style="text-decoration: none;"><button class="event-register-btn ripple-container">
+                        <span>Register Now</span> <i class="fas fa-arrow-right btn-arrow"></i>
+                      </button></a>
+                      <div class="back-close-hint">Tap again to go back</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+          <!-- Navigation -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
+
+      <!-- Rules Section -->
+      <section class="rules-section" id="rules">
+        <h2 class="section-title reveal">Rules And Regulations</h2>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-section" id="contact">
+        <h2 class="section-title reveal">Contact Us</h2>
+        <div class="cordinators-container">
+          <div class="program-cordinators reveal-left">
+            <h2 class="contact-head">Program Coordinators</h2>
+            <span class="pgm-cord">Denny David - 9744908557</span>
+            <span class="pgm-cord">Vidya S Mony - 8089357187</span>
+          </div>
+          <div class="event-cordinators reveal-right">
+            <h2 class="contact-head">Event Coordinators</h2>
+            <span class="evnt-cord">Amal Babu - 9778789204</span>
+            <span class="evnt-cord">Gopeekrishnan - 9400040788</span>
+            <span class="evnt-cord">Tony k Augustin - 8075603094</span>
+            <span class="evnt-cord">Adithyan PS - 8075202044</span>
+            <span class="evnt-cord">Khayaruniza Bai A Latheef - 9400834386</span>
+            <span class="evnt-cord">Malavika V - 9895816778</span>
+          </div>
+        </div>
+
+        <div class="section-content reveal">
+          <ul class="contact-info-list">
+            <a href="https://maps.app.goo.gl/aeESE6d2q4P4LQjj7" class="contact-link">
+              <li class="contact-info"><i class="fa-solid fa-location-crosshairs"></i><p>Naipunnya School Of Management, Cherthala Alappuzha</p></li>
+            </a>
+            <a href="mailto:yantrika2k25@gmail.com?subject=Yantrika Enquiry&body=Hello, I hope you are doing well!" class="contact-link">
+              <li class="contact-info"><i class="fa-regular fa-envelope"></i><p>yantrika2k26@gmail.com</p></li>
+            </a>
+            <a href="https://wa.me/+919744908557" class="contact-link">
+              <li class="contact-info"><i class="fa-brands fa-whatsapp"></i><p>(+91) 9778789204</p></li>
+            </a>
+            <li class="contact-info"><i class="fa-regular fa-clock"></i><p>March 30, 2026 — 09:00 AM - 8:00 PM</p></li>
+            <a href="#" class="contact-link">
+              <li class="contact-info"><i class="fa-solid fa-globe"></i><p>www.yantrika.com</p></li>
+            </a>
+          </ul>
+
+          <form id="submit-form" class="contact-form" action="">
+            <input type="text" placeholder="Your name" class="form-input" name="name" required />
+            <input type="number" placeholder="Your mobile no" class="form-input" name="phoneno" required />
+            <textarea placeholder="Your message" class="form-input" name="message" required></textarea>
+            <div class="btn-container">
+              <button type="submit" class="submit-button ripple-container" id="loadbtn">
+                <span id="submit-text">Submit</span>
+                <div class="loader" id="loader"></div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer-section">
+        <div class="section-content">
+          <p class="copyright-text">&copy; 2026 YANTRIKA</p>
+          <div class="social-link-list">
+            <a href="https://wa.me/+919744908557" class="social-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/yantrika_2k25?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+          <p class="policy-text"><a href="#" class="policy-link">Privacy policy</a></p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // ============ PARTICLE SYSTEM (Mouse-Interactive) ============
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const PARTICLE_COUNT = 70;
+      let mouseX = -1000, mouseY = -1000;
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      // Track mouse for particle repulsion
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      document.addEventListener('mouseleave', () => {
+        mouseX = -1000;
+        mouseY = -1000;
+      });
+
+      class Particle {
+        constructor() { this.reset(); }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 0.5;
+          this.baseSpeedX = (Math.random() - 0.5) * 0.4;
+          this.baseSpeedY = (Math.random() - 0.5) * 0.4;
+          this.speedX = this.baseSpeedX;
+          this.speedY = this.baseSpeedY;
+          this.opacity = Math.random() * 0.5 + 0.1;
+          const colors = ['0,229,255', '41,121,255', '128,216,255', '68,138,255'];
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+        update() {
+          // Mouse repulsion
+          const dx = this.x - mouseX;
+          const dy = this.y - mouseY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            const force = (120 - dist) / 120;
+            this.speedX = this.baseSpeedX + (dx / dist) * force * 2;
+            this.speedY = this.baseSpeedY + (dy / dist) * force * 2;
+          } else {
+            this.speedX += (this.baseSpeedX - this.speedX) * 0.05;
+            this.speedY += (this.baseSpeedY - this.speedY) * 0.05;
+          }
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${this.color},${this.opacity})`;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+      function connectParticles() {
+        for (let a = 0; a < particles.length; a++) {
+          for (let b = a + 1; b < particles.length; b++) {
+            const dx = particles[a].x - particles[b].x;
+            const dy = particles[a].y - particles[b].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 140) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(0,229,255,${0.06 * (1 - dist / 140)})`;
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(particles[a].x, particles[a].y);
+              ctx.lineTo(particles[b].x, particles[b].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        connectParticles();
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+      // ============ SCROLL REVEAL (Staggered) ============
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('active'), i * 120);
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // ============ NAVBAR SCROLL EFFECT ============
+      window.addEventListener('scroll', () => {
+        document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+      });
+
+      // ============ RIPPLE EFFECT ============
+      document.querySelectorAll('.ripple-container').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          const ripple = document.createElement('span');
+          ripple.classList.add('ripple');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          ripple.style.width = ripple.style.height = size + 'px';
+          ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+          ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+          this.appendChild(ripple);
+          setTimeout(() => ripple.remove(), 600);
+        });
+      });
+
+      // ============ EVENT CARD FLIP ============
+      document.querySelectorAll('.event-flip-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+          // Don't flip if clicking the register button
+          if (e.target.closest('.event-register-btn')) return;
+          this.classList.toggle('flipped');
+        });
+
+        // Long-press glow effect (touch devices)
+        let pressTimer;
+        card.addEventListener('touchstart', function() {
+          pressTimer = setTimeout(() => {
+            this.classList.add('press-glow');
+          }, 400);
+        }, { passive: true });
+        card.addEventListener('touchend', function() {
+          clearTimeout(pressTimer);
+          this.classList.remove('press-glow');
+        }, { passive: true });
+        card.addEventListener('touchmove', function() {
+          clearTimeout(pressTimer);
+          this.classList.remove('press-glow');
+        }, { passive: true });
+      });
+
+      // ============ MAGNETIC TILT ON DESKTOP ============
+      if (window.matchMedia('(hover: hover)').matches) {
+        document.querySelectorAll('.event-flip-card').forEach(card => {
+          card.addEventListener('mousemove', function(e) {
+            if (this.classList.contains('flipped')) return;
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -8;
+            const rotateY = ((x - centerX) / centerX) * 8;
+            this.querySelector('.event-flip-inner').style.transform =
+              `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          });
+          card.addEventListener('mouseleave', function() {
+            if (this.classList.contains('flipped')) {
+              this.querySelector('.event-flip-inner').style.transform = 'rotateY(180deg)';
+            } else {
+              this.querySelector('.event-flip-inner').style.transform = '';
+            }
+          });
+        });
+      }
+
+      // ============ SUBMIT BUTTON LOADER ============
+      const loadBtn = document.getElementById("loadbtn");
+      const loader = document.getElementById("loader");
+      const sub_text = document.getElementById("submit-text");
+      loadBtn.addEventListener('click', () => {
+        loader.style.display = 'inline-block';
+        sub_text.style.display = 'none';
+        setTimeout(() => {
+          loader.style.display = 'none';
+          sub_text.style.display = 'inline-block';
+        }, 8000);
+      });
+
+      // ============ FORM SUBMISSION ============
+      $("#submit-form").submit((e) => {
+        e.preventDefault();
+        $.ajax({
+          url: "https://script.google.com/macros/s/AKfycbwiqm01y6f_FlKu3QoY7FQ5zCDjpLobDaKp5ehYGedq3RtAhlD57obuj8NE7p3yIBYP0Q/exec",
+          data: $("#submit-form").serialize(),
+          method: "post",
+          success: function(response) { alert("Form submitted successfully"); window.location.reload(); },
+          error: function(err) { alert("Something went wrong"); window.location.href = "#contact"; }
+        });
+      });
+
+      // ============ COUNTDOWN TIMER ============
+      const day = document.querySelector(".day .numb");
+      const hour = document.querySelector(".hour .numb");
+      const min = document.querySelector(".min .numb");
+      const sec = document.querySelector(".sec .numb");
+      const countdownTimer = setInterval(() => {
+        const now = new Date().getTime();
+        const target = new Date('Mar 30, 2026 09:00:00').getTime();
+        const diff = target - now;
+        if (diff < 0) { clearInterval(countdownTimer); return; }
+        const d = Math.floor(diff / (1000*60*60*24));
+        const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+        const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+        const s = Math.floor((diff % (1000*60)) / 1000);
+        day.innerHTML = d < 10 ? '0'+d : d;
+        hour.innerHTML = h < 10 ? '0'+h : h;
+        min.innerHTML = m < 10 ? '0'+m : m;
+        sec.innerHTML = s < 10 ? '0'+s : s;
+      }, 1000);
+
+      // ============ MOBILE MENU ============
+      // const navbarLinks = document.querySelectorAll(".nav-menu .nav-link");
+      //  menuOpenButton = document.querySelector("#menu-open-button");
+      //  menuCloseButton = document.querySelector("#menu-close-button");
+      // menuOpenButton.addEventListener("click", () => document.body.classList.toggle("show-mobile-menu"));
+      // menuCloseButton.addEventListener("click", () => menuOpenButton.click());
+      // navbarLinks.forEach(link => link.addEventListener("click", () => menuOpenButton.click()));
+
+
+      // ---------- mobile menu toggle (fixed: open button now toggles class) ----------
+      const menuOpen = document.getElementById('menu-open-button');
+      const menuClose = document.getElementById('menu-close-button');
+      const body = document.body;
+
+      if (menuOpen) {
+        menuOpen.addEventListener('click', () => {
+          // Toggle the mobile menu class
+          body.classList.toggle('show-mobile-menu');
+        });
+      }
+
+      if (menuClose) {
+        menuClose.addEventListener('click', () => {
+          body.classList.remove('show-mobile-menu');
+        });
+      }
+
+      // close menu when any nav-link is clicked
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          body.classList.remove('show-mobile-menu');
+        });
+      });
+
+      // ============ EVENTS SWIPER CAROUSEL ============
+      const eventsSwiper = new Swiper(".events-swiper", {
+        loop: true,
+        grabCursor: true,
+        spaceBetween: 28,
+        centeredSlides: false,
+        pagination: {
+          el: ".events-carousel-wrapper .swiper-pagination",
+          clickable: true,
+          dynamicBullets: true
+        },
+        navigation: {
+          nextEl: ".events-carousel-wrapper .swiper-button-next",
+          prevEl: ".events-carousel-wrapper .swiper-button-prev"
+        },
+        breakpoints: {
+          0: { slidesPerView: 1, spaceBetween: 16 },
+          640: { slidesPerView: 1.5, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 24 },
+          1024: { slidesPerView: 3, spaceBetween: 28 }
+        }
+      });
+
+      // ============ SMOOTH SCROLL WITH OFFSET ============
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          e.preventDefault();
+          const target = document.querySelector(targetId);
+          if (target) {
+            const offset = document.querySelector('header').offsetHeight + 10;
+            window.scrollTo({
+              top: target.offsetTop - offset,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // ============ TOUCH ACTIVE STATES ============
+      document.querySelectorAll('.button, .submit-button, .social-link, .event-register-btn, .nav-link').forEach(el => {
+        el.addEventListener('touchstart', function() { this.style.opacity = '0.85'; }, { passive: true });
+        el.addEventListener('touchend', function() { this.style.opacity = ''; }, { passive: true });
+      });
+    </script>
+  </body>
+</html>
