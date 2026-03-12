@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Fest 2026 | Registration</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        /* === NAVBAR === */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(9, 9, 11, 0.5);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+header.scrolled {
+  background: rgba(9, 9, 11, 0.92);
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+}
+
+        .navbar {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo img {
+            height: 70px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #cbd5e0;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+        }
+
+        .register-link {
+            background: #2563eb;
+            color: white;
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        .register-link:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        #menu-open-button,
+        #menu-close-button {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #0A0C10;
+            background-image: radial-gradient(circle at 25% 0%, #1a2a3a 0%, #0A0C10 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: #14181F;
+            border-radius: 32px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            backdrop-filter: blur(10px);
+            margin-top: 70px;
+        }
+
+        /* Left side - Event branding (dark) */
+        .event-brand {
+            background: linear-gradient(165deg, #0F1A2F 0%, #1A2639 100%);
+            padding: 50px 40px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .event-brand::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 100% 0%, rgba(100, 150, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .event-brand h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-brand h1 span {
+            color: #7AA2F7;
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: normal;
+            opacity: 0.9;
+        }
+
+        .event-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.7;
+            margin-bottom: 40px;
+            max-width: 90%;
+            position: relative;
+            z-index: 1;
+            color: #CBD5E0;
+        }
+
+        .event-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .detail-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(122, 162, 247, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #7AA2F7;
+            border: 1px solid rgba(122, 162, 247, 0.2);
+        }
+
+        .detail-text h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.5;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #A0AEC0;
+        }
+
+        .detail-text p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #E2E8F0;
+        }
+
+        .event-highlight {
+            margin-top: auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-text {
+            font-size: 0.95rem;
+            opacity: 0.6;
+            margin-bottom: 15px;
+            color: #A0AEC0;
+        }
+
+        .highlight-text i {
+            color: #7AA2F7;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(122, 162, 247, 0.1);
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #CBD5E0;
+            border: 1px solid rgba(122, 162, 247, 0.2);
+        }
+
+        .badge i {
+            color: #7AA2F7;
+            margin-right: 6px;
+        }
+
+        /* Right side - Registration form (dark) */
+        .registration-section {
+            padding: 50px 45px;
+            background: #14181F;
+        }
+
+        .section-header {
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: #E2E8F0;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: #7F8EA3;
+            font-size: 1rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 5px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #A0AEC0;
+            margin-bottom: 6px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 16px;
+            color: #4A5568;
+            font-size: 1rem;
+            transition: color 0.2s;
+            z-index: 1;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 16px 14px 45px;
+            border: 1.5px solid #2D3748;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            background: #1E2530;
+            color: #E2E8F0;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #4A5568;
+        }
+
+        textarea {
+            padding: 14px 16px 14px 45px;
+            min-height: 100px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237AA2F7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 16px;
+        }
+
+        select option {
+            background: #1E2530;
+            color: #E2E8F0;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #7AA2F7;
+            background: #252F3C;
+            box-shadow: 0 4px 12px rgba(122, 162, 247, 0.2);
+        }
+
+        input:focus + i, select:focus + i, textarea:focus + i {
+            color: #7AA2F7;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0 20px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #7AA2F7;
+            margin: 0;
+            padding: 0;
+            flex-shrink: 0;
+            background: #1E2530;
+            border: 1.5px solid #2D3748;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: 400;
+            color: #A0AEC0;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #7AA2F7 0%, #5f8ee6 100%);
+            color: #0A0C10;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(122, 162, 247, 0.3);
+        }
+
+        .btn-register:hover {
+            background: linear-gradient(135deg, #8bb3ff 0%, #7AA2F7 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(122, 162, 247, 0.4);
+            color: #000;
+        }
+
+        .btn-register i {
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-register:hover i {
+            transform: translateX(5px);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #4A5568;
+            font-size: 0.9rem;
+        }
+
+        .form-footer a {
+            color: #7AA2F7;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .form-footer a:hover {
+            color: #9bb9ff;
+            text-decoration: underline;
+        }
+
+        /* Custom scrollbar for dark mode */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1E2530;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3A4556;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4A5568;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+            
+            .event-brand {
+                padding: 40px 30px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            
+            .event-brand h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .registration-section {
+                padding: 35px 25px;
+            }
+            
+            .badge-group {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                padding: 0.8rem 1.5rem;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #0f172a;
+                flex-direction: column;
+                padding: 5rem 2rem;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 30px black;
+                z-index: 200;
+                overflow-y: auto;
+            }
+
+            body.show-mobile-menu .nav-menu {
+                right: 0;
+            }
+
+            body.show-mobile-menu {
+                overflow: hidden;
+            }
+
+            #menu-open-button {
+                display: block;
+            }
+
+            #menu-close-button {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        /* responsiveness for other sections */
+        @media (max-width: 1024px) {
+            .th-grid {
+                gap: 1.5rem;
+            }
+
+            .rules-card,
+            .form-card {
+                padding: 1.8rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .th-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hack-main {
+                margin: 1.5rem auto;
+                padding: 0 1rem;
+            }
+
+            .page-header {
+                margin-bottom: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .home-badge {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .rules-card,
+            .form-card {
+                padding: 1.5rem 1.2rem;
+                border-radius: 1.2rem;
+            }
+
+            .card-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+                border-radius: 14px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.2rem;
+            }
+
+            h2 i {
+                font-size: 1.5rem;
+            }
+
+            .rules-list li {
+                gap: 10px;
+                font-size: 0.95rem;
+            }
+
+            .rule-num {
+                width: 26px;
+                height: 26px;
+                font-size: 0.9rem;
+                border-radius: 8px;
+            }
+
+            .input-wrapper {
+                padding: 0.1rem 1rem;
+            }
+
+            input {
+                font-size: 0.95rem;
+            }
+
+            .btn-register {
+                padding: 0.9rem 1.2rem;
+                font-size: 1.05rem;
+            }
+
+            .prize-note {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+                margin-top: 1.5rem;
+            }
+
+            .footer-note {
+                font-size: 0.85rem;
+                padding: 1.5rem 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">
+                <img src="./yantrika-images/yantrika.png" alt="Yantrika Logo" style="height:45px;">
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="index.html#events" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="index.html#rules" class="nav-link">Rules</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdMAK3N2_PCzqhsFvhlyOdtZt3FZMfPoFVZkqa5NTaTAF0Fag/viewform?usp=dialog"
+                        class="nav-link register-link">Register</a></li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+    <div class="container">
+        <!-- Left side - Event branding (dark mode) -->
+        <div class="event-brand">
+            <h1>
+                <span>Welcome to</span>
+                IT Fest 2026
+            </h1>
+            <p class="event-description">
+                Join us for three days of technology, innovation, and networking with industry leaders from around the world.
+            </p>
+
+            <div class="event-details">
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="far fa-calendar-alt"></i></div>
+                    <div class="detail-text">
+                        <h4>Date</h4>
+                        <p>May 15-17, 2026</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="far fa-clock"></i></div>
+                    <div class="detail-text">
+                        <h4>Time</h4>
+                        <p>9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="detail-text">
+                        <h4>Venue</h4>
+                        <p>Convention Center, Silicon Valley</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-highlight">
+                <div class="highlight-text">
+                    <i class="fas fa-users" style="margin-right: 8px;"></i>
+                    5,000+ attendees expected
+                </div>
+                <div class="badge-group">
+                    <span class="badge"><i class="far fa-id-badge"></i> Networking</span>
+                    <span class="badge"><i class="fas fa-microphone-alt"></i> Keynotes</span>
+                    <span class="badge"><i class="fas fa-laptop-code"></i> Demos</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side - Registration form (dark mode) -->
+        <div class="registration-section">
+            <div class="section-header">
+                <h2>Register for IT Fest</h2>
+                <p>Fill in your details to secure your spot.</p>
+            </div>
+
+            <form id="registrationForm" onsubmit="event.preventDefault(); alert('Thank you for registering! You will receive a confirmation email shortly.');">
+                <div class="form-grid">
+                    <!-- First Name -->
+                    <div class="form-group">
+                        <label>First name *</label>
+                        <div class="input-wrapper">
+                            <i class="far fa-user"></i>
+                            <input type="text" placeholder="Enter your first name" required>
+                        </div>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group">
+                        <label>Last name *</label>
+                        <div class="input-wrapper">
+                            <i class="far fa-user"></i>
+                            <input type="text" placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group full-width">
+                        <label>Email address *</label>
+                        <div class="input-wrapper">
+                            <i class="far fa-envelope"></i>
+                            <input type="email" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label>Phone number *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-phone-alt"></i>
+                            <input type="tel" placeholder="+1 (555) 000-0000" required>
+                        </div>
+                    </div>
+
+                    <!-- Organization -->
+                    <div class="form-group">
+                        <label>Organization / College</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-building"></i>
+                            <input type="text" placeholder="Where do you work/study?">
+                        </div>
+                    </div>
+
+                    <!-- Registration Type -->
+                    <div class="form-group full-width">
+                        <label>Registration type *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-tag"></i>
+                            <select required>
+                                <option value="" disabled selected>Select registration type</option>
+                                <option value="student">Student</option>
+                                <option value="professional">Professional</option>
+                                <option value="group">Group (5+ people)</option>
+                                <option value="vip">VIP</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Dietary/Notes -->
+                    <div class="form-group full-width">
+                        <label>Special requests or notes</label>
+                        <div class="input-wrapper">
+                            <i class="far fa-comment-dots"></i>
+                            <textarea placeholder="Dietary restrictions, accessibility needs, or any other requests"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms checkbox -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I confirm that the information provided is accurate and I agree to the event's privacy policy.</label>
+                </div>
+
+                <!-- Updates checkbox -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="updates">
+                    <label for="updates">I'd like to receive updates about IT Fest 2026 via email.</label>
+                </div>
+
+                <button type="submit" class="btn-register">
+                    Complete Registration <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <div class="form-footer">
+                    Have questions? <a href="#">Contact us</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    const inputs = form.querySelectorAll("input, select, textarea");
+
+    const data = {
+        first: inputs[0].value,
+        last: inputs[1].value,
+        email: inputs[2].value,
+        phone: inputs[3].value,
+        organization: inputs[4].value,
+        type: inputs[5].value,
+        notes: inputs[6].value
+    };
+
+    await fetch("https://script.google.com/macros/s/AKfycbyd5WnzF4Q9B_nnZZJLfnxZVSRN7z0LHiRnMvFOlqbVOEJ4emB9z1AMgylHkJiyhcz4/exec",{
+        method:"POST",
+        body:JSON.stringify(data)
+    });
+
+    alert("Registration successful!");
+    form.reset();
+});
+
+// ---------- mobile menu toggle (fixed: open button now toggles class) ----------
+      const menuOpen = document.getElementById('menu-open-button');
+      const menuClose = document.getElementById('menu-close-button');
+      const body = document.body;
+
+      if (menuOpen) {
+        menuOpen.addEventListener('click', () => {
+          // Toggle the mobile menu class
+          body.classList.toggle('show-mobile-menu');
+        });
+      }
+
+      if (menuClose) {
+        menuClose.addEventListener('click', () => {
+          body.classList.remove('show-mobile-menu');
+        });
+      }
+
+      // close menu when any nav-link is clicked
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          body.classList.remove('show-mobile-menu');
+        });
+      });
+</script>
+</body>
+</html>
